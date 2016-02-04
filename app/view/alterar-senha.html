@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+			  <div class="panel-heading">Alterar Senha</div>
+			  <div class="panel-body">
+			  		
+
+          <div class="row" >
+                <div class="form-group col-md-6">
+                     <label for="senhaAtual" class="control-label" >Senha Atual</label>
+                    <input id="senhaAtual" type="password" class="form-control"  name="senhaAtual" 
+                    ng-model="senhaAtual" placeholder="Senha Atual" required>
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="neForm.nivel.$error" 
+                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
+                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
+                   </div>
+
+              </div>
+   			 	</div>
+
+          <div class="row" >
+                <div class="form-group col-md-6">
+                     <label for="novaSenha" class="control-label" >Nova Senha</label>
+                    <input id="novaSenha" type="password" class="form-control"  name="novaSenha" 
+                    ng-model="novaSenha" placeholder="Nova Senha" required>
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="neForm.nivel.$error" 
+                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
+                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
+                   </div>
+
+              </div>
+          </div>
+
+
+          <div class="row" >
+                <div class="form-group col-md-6">
+                     <label for="confirmaNovaSenha" class="control-label" >Confirmar Nova Senha</label>
+                    <input id="confirmaNovaSenha" type="password" class="form-control"  name="confirmaNovaSenha" 
+                    ng-model="confirmaNovaSenha" placeholder="Confirma Nova Senha" required>
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="neForm.nivel.$error" 
+                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
+                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
+                   </div>
+
+              </div>
+          </div>
+
+           <div class="text-center" >
+                <button class="btn btn-primary">Atualizar Senha</button>
+           </div>
+
+           
+         
+  	  </div>
+</div>
