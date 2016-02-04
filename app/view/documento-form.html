@@ -1,0 +1,96 @@
+<div class="panel panel-default">
+			  <div class="panel-heading">E-mails</div>
+			  <div class="panel-body">
+			  <div class="row">
+                 <div class="form-group col-md-4">
+                     <label for="estado" class="control-label">
+                        Documento
+                     </label>
+                    
+                    <select ng-model="pessoa.endereco.uf" id="uf" name="uf" 
+                        class="form-control"
+                        ng-options="uf.id as uf.nome for uf in ufs"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+
+                  </div>
+
+              <div class="form-group col-md-4"
+                   ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.confirmaSenha.$invalid)}">
+
+                   <label for="confirmaSenha" class="control-label field-required">
+                       Numero
+                   </label>
+                    <input type="tel" id="confirmaSenha" name="confirmaSenha"
+                           class="form-control"ng-model="pessoa.confirmaSenha"   
+                           placeholder="Confirma Senha" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.confirmaSenha.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-4"
+                  ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.dataNascimento.$invalid)}"
+                >
+                     <label for="dataNascimento" 
+                            class="control-label field-required">
+                           Data de Expedição
+                     </label>
+                    <input type="date" id="dataNascimento" name="dataNascimento"
+                           class="form-control" ng-model="pessoa.dataNascimento" placeholder="Ex: 16/04/1991" required/>
+                    <!--Mostra mensagem de validação -->
+                    <div ng-messages="pessoaForm.dataNascimento.$error" 
+                            ng-show="pessoaForm.$submitted">
+                        <span class="help-block" ng-message="required">
+                            Obrigatório
+                        </span>
+                    </div>
+                </div>
+
+
+              
+            </div>
+
+             <div class="text-center">
+               	    <br/>
+               		<button class="btn btn-primary" ng-click="remover(pessoas,pessoa)">
+		    			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		    			Adicionar Telefone
+            		</button>
+
+            		<button class="btn btn-danger" ng-click="remover(pessoas,pessoa)">
+		    			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		    				Remover Selecionados
+		    		</span>
+               </div>
+   	
+   	 <hr/>
+
+   	 <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>E-mail</th>
+                  <th>Ação</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in pessoa.emails">
+                  <td> <input type="checkbox" ></td>
+                  <td>{{item.email}}</td>
+                  <td>	<button class="btn btn-danger" ng-click="remover(pessoas,pessoa)">
+		    			<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button></td>
+                </tr>
+            </table>
+          </div>
+
+			  </div>
+</div>

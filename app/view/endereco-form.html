@@ -1,0 +1,152 @@
+<div class="panel panel-default">
+        <div class="panel-heading">Endereço</div>
+        <div class="panel-body">
+          <form name="pessoaForm" novalidate>
+              <div class="row">
+                  <div class="form-group col-md-6">
+                     <label for="estado" class="control-label">
+                       Estado
+                     </label>
+                    
+                    <select ng-model="pessoa.endereco.uf" id="uf" name="uf" 
+                        class="form-control"
+                        ng-options="uf.id as uf.nome for uf in ufs"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+
+                  </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                     <label for="cidade" class="control-label">
+                       Cidade
+                     </label>
+                    
+                    <select ng-model="pessoa.endereco.uf" id="uf" name="uf" 
+                        class="form-control"
+                        ng-options="uf.id as uf.nome for uf in ufs"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                     <label for="cidade" class="control-label">
+                       Bairro
+                     </label>
+                    
+                    <select ng-model="pessoa.endereco.uf" id="uf" name="uf" 
+                        class="form-control"
+                        ng-options="uf.id as uf.nome for uf in ufs"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+                </div>
+              </div>
+
+               <div class="row">
+
+                 <div class="form-group col-md-2">
+                     <label for="cidade" class="control-label">
+                       CEP
+                     </label>
+                    
+                     <input type="text" id="nome" name="cep"
+                           class="form-control"ng-model="pessoa.endereco.cep"   
+                           placeholder="Nome" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.nome.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="cidade" class="control-label">
+                       Tipo de Logradouro
+                     </label>
+                    
+                    <select ng-model="pessoa.endereco.uf" id="uf" name="uf" 
+                        class="form-control"
+                        ng-options="uf.id as uf.nome for uf in ufs"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                     <label for="cidade" class="control-label">
+                       Logradouro
+                     </label>
+                    
+                    <input type="text" id="nome" name="nome"
+                           class="form-control"ng-model="pessoa.nome"   
+                           placeholder="Nome" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.nome.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+                </div>
+
+               
+              </div>
+
+
+               <div class="row">
+               
+
+                <div class="form-group col-md-3">
+                     <label for="cidade" class="control-label">
+                       Numero
+                     </label>
+                    
+                    <input type="text" id="nome" name="nome"
+                           class="form-control"ng-model="pessoa.endereco.numero"   
+                           placeholder="Nome" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.nome.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-9">
+                     <label for="cidade" class="control-label">
+                       Complemento
+                     </label>
+                    
+                     <input type="text" id="nome" name="cep"
+                           class="form-control"ng-model="pessoa.endereco.complemento"   
+                           placeholder="Nome" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.nome.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+                </div>
+              </div>
+            
+
+
+                    
+            </div>
+
+           
+
+
+
+
+          </form>   
+
+      </div>
+</div>
+

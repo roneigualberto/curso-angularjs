@@ -1,7 +1,7 @@
 var mainApp = angular.module("mainApp",['ngRoute','ngMessages','ui.bootstrap']);
 
 
-mainApp.config(['$routeProvider',function($routeProvider){
+mainApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 
 	$routeProvider
     	.when('/pessoas', {
@@ -14,9 +14,12 @@ mainApp.config(['$routeProvider',function($routeProvider){
         })
       	.when('/pessoa/edit/:pessoaId', {
         	templateUrl: 'view/pessoa-edit.html',
-        	controller: 'PessoaListCtrl'
+        	controller: 'PessoaFormCtrl'
       	})
        	.otherwise({redirectTo: '/pessoas'});
+
+    //$locationProvider.html5Mode(true);
+    //$locationProvider.hashPrefix('/');
 
 
 }]);

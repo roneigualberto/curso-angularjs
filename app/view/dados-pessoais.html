@@ -1,112 +1,160 @@
 <div class="panel panel-default">
-			  <div class="panel-heading">Dados Básicos</div>
-			  <div class="panel-body">
-			  		
+        <div class="panel-heading">Dados Básicos</div>
+        <div class="panel-body">
+          <form name="pessoaForm" novalidate>
 
-          <div class="row" >
-                <div class="form-group col-md-12">
-                     <label for="nome" class="control-label" >Nome</label>
-                    <input id="nome" type="text" class="form-control"  name="nome" 
-                    ng-model="nome" placeholder="Nome" required>
+       
+            <div class="row">
+                <div class="form-group col-md-12"
+                   ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.nome.$invalid)}">
+
+                   <label for="nome" class="control-label field-required">
+                       Nome
+                   </label>
+                    <input type="text" id="nome" name="nome"
+                           class="form-control"ng-model="pessoa.nome"   
+                           placeholder="Nome" required />
                   <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
-
+                  <div ng-messages="pessoaForm.nome.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
               </div>
-   			 	</div>
-
-        
-
-          <div class="row" >
-                <div class="form-group col-md-4">
-                     <label for="dataNascimento" class="control-label" >Data de Nascimento</label>
-                    <input id="dataNascimento" type="date" class="form-control"  name="dataNascimento" 
-                    ng-model="dataNascimento" placeholder="Ex: 16/04/1991" required>
-                  <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
-
-              </div>
+            </div>
+    
+            <div class="row" >
+                <div class="form-group col-md-4"
+                  ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.dataNascimento.$invalid)}"
+                >
+                     <label for="dataNascimento" 
+                            class="control-label field-required">
+                            Data de Nascimento
+                     </label>
+                    <input type="date" id="dataNascimento" name="dataNascimento"
+                           class="form-control" ng-model="pessoa.dataNascimento" placeholder="Ex: 16/04/1991" required/>
+                    <!--Mostra mensagem de validação -->
+                    <div ng-messages="pessoaForm.dataNascimento.$error" 
+                            ng-show="pessoaForm.$submitted">
+                        <span class="help-block" ng-message="required">
+                            Obrigatório
+                        </span>
+                    </div>
+                </div>
          
 
           
-                <div class="form-group col-md-4">
-                     <label for="confirmaNovaSenha" class="control-label" >Sexo</label>
+                <div class="form-group col-md-4"
+                     ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.sexo.$invalid)}" >
+                     <label for="sexo" class="control-label field-required">
+                        Sexo
+                     </label>
                     
-                    <select ng-model="sexo" name="sexo" class="form-control">
-
+                    <select id="sexo" name="sexo" 
+                        class="form-control" ng-model="pessoa.sexo" required
+                        ng-options="sexo.id as sexo.descricao for sexo in sexos"
+                        >
                        <option value="">Selecione:</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
                     </select>
-                  
-                  <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
+                    
+                    <!--Mostra mensagem de validação -->
+                    <div ng-messages="pessoaForm.sexo.$error" 
+                            ng-show="pessoaForm.$submitted">
+                        <span class="help-block" ng-message="required">
+                            Obrigatório
+                        </span>
+                    </div>
 
+              </div>
+
+              <div class="form-group col-md-4">
+                     <label for="estadoCivil" class="control-label">
+                        Estado Civil
+                     </label>
+                    
+                    <select ng-model="pessoa.estadoCivil" id="estadoCivil" name="estadoCivil" 
+                        class="form-control"
+                        ng-options="ec.id as ec.descricao for ec in estadoCivilList"
+                        >
+                       <option value="">Selecione:</option>
+                    </select>
+                    
               </div>
          
 
 
          
-                <div class="form-group col-md-4">
-                     <label for="confirmaNovaSenha" class="control-label" >Estado Civil</label>
-                    
-                    <select ng-model="sexo" name="sexo" class="form-control">
-
-                       <option value="">Selecione:</option>
-                        <option value="M">Solteiro</option>
-                        <option value="F">Casado</option>
-                    </select>
-                  
-                  <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
-
-              </div>
-          </div>
-
-            <div class="row" >
-                <div class="form-group col-md-12">
-                     <label for="nome" class="control-label" >Nome da Mãe</label>
-                    <input id="nome" type="text" class="form-control"  name="nome" 
-                    ng-model="nome" placeholder="Nome" required>
-                  <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
-
-              </div>
           </div>
 
           <div class="row" >
                 <div class="form-group col-md-12">
-                     <label for="nome" class="control-label" >Nome do Pai</label>
-                    <input id="nome" type="text" class="form-control"  name="nome" 
-                    ng-model="nome" placeholder="Nome" required>
-                  <!--Mostra mensagem de validação -->
-                  <div ng-messages="neForm.nivel.$error" 
-                          ng-show="neForm.$submitted || neForm.nivel.$dirty">
-                      <span class="help-block" ng-message="required">Nível é Obrigatório</span>
-                   </div>
-
-              </div>
+                     <label for="mae" class="control-label">
+                        Nome da Mãe
+                      </label>
+                    <input id="mae" type="text" class="form-control" name="mae" 
+                    ng-model="pessoa.mae" placeholder="Nome da Mãe">
+                </div>
           </div>
 
-           <div class="text-center" >
-                <button class="btn btn-primary">Atualizar Senha</button>
-           </div>
+          <div class="row" >
+                <div class="form-group col-md-12">
+                     <label for="pai" class="control-label">
+                        Nome da Pai
+                      </label>
+                    <input id="pai" type="text" class="form-control" name="pai" 
+                    ng-model="pessoa.pai" placeholder="Nome do Pai">
+                </div>
+          </div>
 
-           
-         
-  	  </div>
+          <div class="row">
+                <div class="form-group col-md-6"
+                   ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.senha.$invalid)}">
+
+                   <label for="senha" class="control-label field-required">
+                       Senha
+                   </label>
+                    <input type="password" id="senha" name="senha"
+                           class="form-control"ng-model="pessoa.senha"   
+                           placeholder="Senha" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.senha.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6"
+                   ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.confirmaSenha.$invalid)}">
+
+                   <label for="confirmaSenha" class="control-label field-required">
+                       Confirma Senha
+                   </label>
+                    <input type="password" id="confirmaSenha" name="confirmaSenha"
+                           class="form-control"ng-model="pessoa.confirmaSenha"   
+                           placeholder="Confirma Senha" required />
+                  <!--Mostra mensagem de validação -->
+                  <div ng-messages="pessoaForm.confirmaSenha.$error" 
+                          ng-show="pessoaForm.$submitted">
+                      <span class="help-block" ng-message="required">
+                          Obrigatório
+                      </span>
+                  </div>
+              </div>
+            </div>
+
+           <div class="text-center" >
+                <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                Atualizar</button>
+
+               
+           </div> 
+
+          </form>   
+
+      </div>
 </div>
+
