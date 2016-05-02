@@ -1,32 +1,49 @@
 angular.module("mainApp").controller("PessoaListCtrl",['$scope','PessoaAPI',
 					function($scope, PessoaAPI){
 
-	$scope.teste = "Teste";
+	 $scope.pessoas = [];
 
-	/*PessoaAPI.listar().success(function(pessoas){
-		$scope.pessoas = pessoas;
+	 var listarPessoas = function(){
 
-	});*/
+	 	PessoaAPI.listar().success(function(pessoas){
+			$scope.pessoas = pessoas;
 
-	$scope.pessoas = [
-		{id: 1, nome: "Ronei Macedo Gualberto", dataNascimento: new Date(), sexo:"M"},
-		{id: 2, nome: "Gerson Bastista", dataNascimento: new Date(), sexo:"M"},
-		{id: 3, nome: "Carlos Eduardo", dataNascimento: new Date(), sexo:"M"},
-		{id: 4, nome: "Geison Nascimento", dataNascimento: new Date(), sexo:"M"},
-		{id: 5, nome: "Juliane Silva", dataNascimento: new Date(), sexo:"F"},
-		{id: 6, nome: "Alessandra Machado", dataNascimento: new Date(), sexo:"M"},
-		{id: 7, nome: "Diovane Monteiro", dataNascimento: new Date(), sexo:"M"}
+		});
+	 };
 
-	];
+	 listarPessoas();
 
 	
-
-
-
-
-	$scope.remover = function(pessoas,pessoa){
-		var posicao = pessoas.indexOf(pessoa);
-		pessoas.splice(posicao,1);
+	$scope.selecionarTodos = function(selecionado){
+		$scope.pessoas.forEach(function(pessoa){
+			pessoa.selecionado = selecionado;
+		});
 	};
+
+	$scope.existeSelecionado = function(){
+		return $scope.pessoas.some(function(pessoa){
+			return pessoa.selecionado;
+		});
+	};
+
+	$scope.removerSelecionados = function(){
+	 var pessoas =  $scope.pessoas.filter(function(pessoa){
+			return pessoa.selecionado;
+		}).map(function(pessoa){
+			return pessoa.id;
+		});
+
+		PessoaAPI.deletar(pessoas).success(function(){
+			listarPessoas();
+		});
+	};
+
+	$scope.remover = function(pessoa){
+		PessoaAPI.deletar(pessoa.id).success(function(){
+			listarPessoas();
+		});
+	};
+
+	
 
 }]);

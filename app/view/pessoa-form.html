@@ -10,7 +10,16 @@
 
        
             <div class="row">
-                <div class="form-group col-md-12"
+                <div class="form-group  has-feedback">
+
+        <label class="control-label" for="inputSuccess4">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          
+    </div>
+              <div class="col-md-6">
+                  <div class="form-group has-feedback "
+                  
                    ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.nome.$invalid)}">
 
                    <label for="nome" class="control-label field-required">
@@ -19,6 +28,8 @@
                     <input type="text" id="nome" name="nome"
                            class="form-control"ng-model="pessoa.nome"   
                            placeholder="Nome" required />
+                    <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          
                   <!--Mostra mensagem de validação -->
                   <div ng-messages="pessoaForm.nome.$error" 
                           ng-show="pessoaForm.$submitted">
@@ -28,9 +39,12 @@
                   </div>
               </div>
             </div>
+
+              </div>
+                
     
             <div class="row" >
-                <div class="form-group col-md-4"
+                <div class="form-group col-md-6"
                   ng-class="{'has-error': (pessoaForm.$submitted && pessoaForm.dataNascimento.$invalid)}"
                 >
                      <label for="dataNascimento" 

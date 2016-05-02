@@ -1,33 +1,15 @@
 <div class="page-header">
-	<h1>Pesquisa de Pessoas</h1>
+	<h1>Cadastro de Pessoas</h1>
 </div>
 
 <div class="row">
 
-	<div class="col-md-3">
-			<div class="row">
- 
-    <a href="#" class="avatar">
-       <img alt="{{pessoa.nome}}" 
-          ng-src="{{pessoa.foto}}" ng-if="pessoa.foto">
 
-          <div class="avatar-empty grande" ng-if="!pessoa.foto">
-              {{pessoa.nome| limitTo: 1}}
-          </div>
 
-    </a>
- 
-
- 
-</div>
- <h3 class="vcard-names">
-  <span >{{pessoa.nome}}</span>
-  
-</h3>
 	</div>
 
 
-	<div class="col-md-9">
+	<div class="col-md-10 main">
 		 <uib-tabset justified="true">
     <uib-tab ng-repeat="tab in tabs">
         <uib-tab-heading>

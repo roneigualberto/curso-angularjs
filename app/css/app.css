@@ -54,5 +54,13 @@ input[type="checkbox"] {
 
 }
 
+.input-autocomplete::after {
+    content: 'Nome da porra local'
+}
+
+.input-autocomplete{
+    display: inline-block;
+}
+
 
 

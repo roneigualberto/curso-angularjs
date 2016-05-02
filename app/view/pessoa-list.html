@@ -1,8 +1,15 @@
 <div class="page-header">
-	<h1>Pesquisa de Pessoas</h1>
-</div>
+	<h1>Pesquisa deasdfad   Pessoas</h1>
+</div>sd
 
 <form name="pessoaForm">
+    <div class="form-group  has-feedback">
+
+        <label class="control-label" for="inputSuccess4">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+          
+    </div>
 	 <div class="form-group">
          <div class="input-group col-md-8">
                <input autocomplete="off" 
@@ -13,35 +20,53 @@
                 <span class="input-group-btn">
                     <a  class="btn btn-primary" href="#/pessoa/form">
                     	 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                         Novo Cadastro
+                          &nbsp;
                         
                     </a>
+                   
                 </span>
    	 </div>	
    	 <hr/>
-   	<!-- <div class="table-responsive">
+   	 <div class="table-responsive">
    	 	<table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>
+                      <input type="checkbox" ng-model="selecionado" ng-click="selecionarTodos(selecionado)" />
+                     <button class="btn btn-danger" ng-disabled="!existeSelecionado()" 
+                            ng-click="removerSelecionados()" >
+                       <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                     </button>                      
+                    </a></th>
                   <th>Nome</th>
                   <th>Data Nascimento</th>
                   <th>Sexo</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="pessoa in pessoas | filter:busca">
-                  <td>{{pessoa.id}}</td>
-                  <td>{{pessoa.nome}}</td>
+                  <td> <input type="checkbox" ng-model="pessoa.selecionado" /></td>
+                  <td><a href="#"> {{pessoa.nome | uppercase}} </a></td>
                   <td>{{pessoa.dataNascimento | date: 'dd/MM/yyyy'}}</td>
-                  <td>{{pessoa.sexo | date}}</td>
+                  <td>{{pessoa.sexo | sexo}}</td>
+                  <td>
+                      <a class="btn btn-success" href="#/pessoa/edit/1">
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+
+            </a>
+            <button class="btn btn-danger" ng-click="remover(pessoa)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+
+                  </td>
                 </tr>
                
               </tbody>
             </table>
-   	 </div> 	-->	
+   	 </div> 	
 
-	 <div class="list-group">
+	 <!--<div class="list-group">
 		  <div class="list-group-item" ng-repeat="pessoa in pessoas | filter:busca | orderBy:'nome'">
 		  		
 		  	
@@ -92,7 +117,7 @@
 		    		 
 		    </p>
 		  </div>
-	 </div>
+	 </div>-->
 	
 			 		
 </form>

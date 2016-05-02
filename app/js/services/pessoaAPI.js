@@ -5,9 +5,18 @@ angular.module("mainApp").factory("PessoaAPI",
 		return $http.get(constants.BASE_URL+"/pessoas");
 	};
 
+	var deletar = function(ids){
+		if (angular.isArray(ids)) {
+			return $http.delete(constants.BASE_URL+"/pessoas",{
+				headers: {'Content-Type': 'application/json'}, data: ids});
+		}
+		return $http.delete(constants.BASE_URL+"/pessoas/"+ids);
+	};
+
 
 	return {
-		listar: listar
+		listar: listar,
+		deletar: deletar
 	};
 
 }]);
